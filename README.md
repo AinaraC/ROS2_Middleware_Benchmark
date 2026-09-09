@@ -94,7 +94,7 @@ Below are the results obtained after running latency benchmarks at a 20 Hz frequ
 
 ### Temporal Stability
 
-![alt text](latency_DDS_Zenoh/latency_test_py/results/no_qos_latency_timeseries.png)
+![alt text](latency_test_py/results/no_qos_latency_timeseries.png)
 
 1. **Cyclone DDS:** Consistently stays within the lower band with very low oscillation amplitude.
 
@@ -102,7 +102,7 @@ Below are the results obtained after running latency benchmarks at a 20 Hz frequ
 
 3. **Zenoh:** Demonstrates very uniform behavior. The green band runs parallel to the others, confirming that its additional latency is a fixed, predictable cost (Router).
 
-![alt text](latency_DDS_Zenoh/latency_test_py/results/no_qos_jitter_timeseries.png)
+![alt text](latency_test_py/results/no_qos_jitter_timeseries.png)
 
 1. **Cyclone DDS:** Exhibits the best baseline stability. The vast majority of its values stay anchored near the 0.0 axis.
 
@@ -110,13 +110,13 @@ Below are the results obtained after running latency benchmarks at a 20 Hz frequ
 
 3. **Zenoh:** Demonstrates consistent, bounded stability. Although its baseline "noise" level is slightly higher than Cyclone's (denser in the 0.1–0.3 ms range), it does not suffer from the extreme spikes seen in Fast DDS. It almost always stays below 0.5 ms, indicating highly predictable and bounded behavior that effectively avoids extreme latency peaks.
 
-![alt text](latency_DDS_Zenoh/latency_test_py/results/with_qos_latency_timeseries.png)
+![alt text](latency_test_py/results/with_qos_latency_timeseries.png)
 
 1. **Cyclone DDS QoS:** Maintains total dominance. The signal is extremely compact and low, fluctuating minimally between 0.5 ms and 0.9 ms.
 2. **Fast DDS QoS:** Unlike its default version, here it closely tracks Cyclone, eliminating nearly all noise and dramatically improving its temporal stability.
 3. **Zenoh QoS:** Suffers a severe regression in stability. The plot shows chaotic, wide-amplitude oscillations (between 1.0 ms and 3.5 ms), indicating that the chosen QoS policy caused router saturation, losing all the predictability of its default version.
 
-![alt text](latency_DDS_Zenoh/latency_test_py/results/with_qos_jitter_timeseries.png)
+![alt text](latency_test_py/results/with_qos_jitter_timeseries.png)
 
 1. **Cyclone DDS QoS:** Its line remains consistently pinned to the X-axis (0.0 ms), with almost no significant deviations.
 2. **Fast DDS QoS:** Unlike its default version, here it tracks Cyclone almost perfectly near the bottom of the plot. The QoS policy eliminated the earlier noise, making it as stable as Cyclone in this benchmark.
